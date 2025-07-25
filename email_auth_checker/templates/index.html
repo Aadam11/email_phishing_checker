@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Authenticity Checker</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Email Authenticity Checker</h1>
+    <form method="POST">
+      <input type="text" name="subject" placeholder="Email Subject" required />
+      <input type="text" name="sender" placeholder="Sender Email (e.g., support@bank.com)" required />
+      <textarea name="body" placeholder="Paste the email body here..." rows="8" required></textarea>
+      <button type="submit">Check Email</button>
+    </form>
+    {% if result %}
+      <div class="result">
+        <p><strong>Result:</strong> {{ result }}</p>
+        <p><strong>Confidence:</strong> {{ confidence }}%</p>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
